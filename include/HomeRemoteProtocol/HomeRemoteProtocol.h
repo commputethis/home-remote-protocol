@@ -51,27 +51,23 @@ struct HelloPayload {
     char device_name[32]{};
 };
 
-struct StatePayload {
-    std::uint8_t light_on{0};
-    std::uint8_t light_brightness{0};
-    std::uint8_t fan_on{0};
-    std::uint8_t fan_percentage{0};
-    std::uint8_t ambient_brightness{0};
-};
-
-struct CommandPayload {
-    Command command{Command::LightToggle};
-    std::uint8_t value{0};
-};
-
-struct BatteryPayload {
-    std::uint8_t percentage{0};
-    std::uint16_t millivolts{0};
-};
-
 struct AckPayload {
     std::uint16_t acknowledged_sequence{0};
     AckStatus status{AckStatus::Accepted};
+};
+
+enum class ValueType : uint8_t;
+
+struct ResourceReference {
+    uint16_t resource_id;
+    uint16_t property_id;
+};
+
+struct ResourceValue {
+    ResourceReference target;
+    ValueType type;
+    uint16_t length;
+    // Encoded value follows on the wire.
 };
 #pragma pack(pop)
 
