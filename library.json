@@ -1,0 +1,10 @@
+{
+  "name": "HomeRemoteProtocol",
+  "version": "0.1.0",
+  "description": "Versioned message protocol for Home Remote Platform devices and bridges.",
+  "authors": [{"name": "Commputethis"}],
+  "license": "MIT",
+  "frameworks": "*",
+  "platforms": "*",
+  "headers": "HomeRemoteProtocol.h"
+}
